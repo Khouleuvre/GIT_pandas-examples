@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-__author__ = 'Khouleuvre'
+__author__ = 'ManuLabricole'
+
 
 import pandas as pd
 import numpy as np
@@ -25,7 +26,7 @@ mergeRatings = pd.merge(pd.merge(users, ratings), movies)
 
 def cloneDF(df):
     a = pd.DataFrame(df.values.copy(), df.index.copy(), df.columns.copy())
-    return a.apply(pd.to_numeric, errors = 'ignore')
+    return a.apply(pd.to_numeric, errors='ignore')
 
 
 # Show Films with more votes. (groupby + sorted)
@@ -61,7 +62,8 @@ print('\n==================================================================\n')
 
 # Sort data ratings by created field (groupby + lambda function + sorted)
 sortRatingsField_Elie = cloneDF(mergeRatings)
-sortRatingsField_Elie = sortRatingsField.groupby(['movie_id', 'title'])['rating'].agg(
+sortRatingsField_Elie = sortRatingsField.groupby(
+    ['movie_id', 'title'])['rating'].agg()
 rangement = cloneDF(mergeRatings)
 rangement = sortRatingsField.groupby(['movie_id', 'title'])['rating'].agg(
     COUNT=np.size, myAVG=lambda x: x.sum() / float(x.count())).sort('COUNT', ascending=False)
