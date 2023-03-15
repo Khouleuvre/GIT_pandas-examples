@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 __author__ = 'ManuLabricole'
+__annotations__ = "Add SSH"
 
 
 import pandas as pd
@@ -66,5 +67,5 @@ sortRatingsField_Elie = sortLabricole.groupby(
     ['movie_id', 'title'])['rating'].agg()
 rangement = cloneDF(mergeRatings)
 rangement = sortLabricole.groupby(['movie_id', 'title'])['rating'].agg(ggg)
-    COUNT=np.size, myAVG=lambda x: x.sum() / float(x.count())).sort('COUNT', ascending=False)
+    COUNT = np.size, myAVG = lambda x: x.sum() / float(x.count())).sort('COUNT', ascending=False)
 print('My info sorted: \n%s' % sortLabricole[:15])
