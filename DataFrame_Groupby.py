@@ -63,6 +63,6 @@ print('\n==================================================================\n')
 sortRatingsField_Elie = cloneDF(mergeRatings)
 sortRatingsField_Elie = sortRatingsField.groupby(['movie_id', 'title'])['rating'].agg(
 rangement = cloneDF(mergeRatings)
-rangement = sortRatingsField.groupby(['movie_id', 'title'])['rating'].agg()
+rangement = sortRatingsField.groupby(['movie_id', 'title'])['rating'].agg(ggg)
     COUNT=np.size, myAVG=lambda x: x.sum() / float(x.count())).sort('COUNT', ascending=False)
 print('My info sorted: \n%s' % sortRatingsField[:15])
